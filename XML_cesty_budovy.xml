@@ -43,15 +43,8 @@
         </DCPType>
       </GetCapabilities>
       <GetMap>
-        <Format>image/bmp</Format>
-        <Format>image/jpeg</Format>
-        <Format>image/tiff</Format>
         <Format>image/png</Format>
-        <Format>image/png8</Format>
-        <Format>image/png24</Format>
-        <Format>image/png32</Format>
-        <Format>image/gif</Format>
-        <Format>image/svg+xml</Format>
+        
         <DCPType>
           <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://zbgisws.skgeodesy.sk/zbgis_antropogenne_prvky_wms_featureinfo/service.svc/get?"/></Get></HTTP>
         </DCPType>
@@ -83,7 +76,7 @@
       <Format>XML</Format>
     </Exception>
    
-      </Layer>
+      <Layer>
       <Layer queryable="1">
         <Name>2</Name>
         <Title><![CDATA[Budovy]]></Title>
@@ -145,4 +138,5 @@
       </Layer>
     </Layer>
   </Capability>
+
 </WMS_Capabilities>
