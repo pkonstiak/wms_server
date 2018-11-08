@@ -76,9 +76,8 @@
       <Format>XML</Format>
     </Exception>
    
-      <Layer>
-      <Layer queryable="1">
-        <Name>2</Name>
+      <Layer queryable="0">
+        <Name>budovy</Name>
         <Title><![CDATA[Budovy]]></Title>
         <Abstract><![CDATA[]]></Abstract>
 <CRS>EPSG:5514</CRS>
@@ -91,20 +90,13 @@
 <northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
 <BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
 
-        <Style>
-          <Name>default</Name>
-          <Title>2</Title>
-          <LegendURL width="18" height="18">
-            <Format>image/png</Format>
-            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_antropogenne_prvky_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=2" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
-          </LegendURL>
-        </Style>
+        
         <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
       </Layer>
 
 
-      <Layer queryable="1">
-        <Name>3</Name>
+      <Layer queryable="0">
+        <Name>cesty</Name>
         <Title><![CDATA[cesty]]></Title>
         <Abstract><![CDATA[]]></Abstract>
 
@@ -116,27 +108,12 @@
 <southBoundLatitude>48.762688</southBoundLatitude>
 <northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
 <BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
-        <Style>
-          <Name>default</Name>
-          <Title>3</Title>
-          <LegendURL width="18" height="18">
-            <Format>image/png</Format>
-            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_antropogenne_prvky_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=3" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
-          </LegendURL>
-        </Style>
+        
         <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
 
 
-        <Style>
-          <Name>default</Name>
-          <Title>4</Title>
-          <LegendURL width="18" height="18">
-            <Format>image/png</Format>
-            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_antropogenne_prvky_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=4" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
-          </LegendURL>
-        </Style>
+       
       </Layer>
-    </Layer>
   </Capability>
 
 </WMS_Capabilities>
