@@ -1,3 +1,5 @@
+function GetMap () {
+
 var path = require("path");
 var fs = require("fs");
 var mapnik = require("mapnik"); // lib for map rendering
@@ -5,9 +7,15 @@ var mapnik = require("mapnik"); // lib for map rendering
 mapnik.register_default_fonts(); // register some default fonts into mapnik
 mapnik.register_default_input_plugins(); // same with plugins
 
-var width = 800; // with of map image in pixels
-var height = 600; // height -||-
-var BBOX = [-508428.4646376185119,-1222456.082299999893,-504979.520799998194,-1220887.147535035154]; // bottom left corner coords and top right corner coords of the image 
+var width = 600; // with of map image in pixels
+var height = 400; // height -||-
+var BBOX = [-511582.070,-1222272.459,-507683.382,-1218107.447]; // bottom left corner coords and top right corner coords of the image 
+
+
+var arg=
+number (width)
+number (height);
+
 
 var map = new mapnik.Map(width, height);
 // create new map object with defined width and height
@@ -82,3 +90,6 @@ map.fromString(schema, function(err, map) { // we use method "fromString" => we 
     });
   });
 });
+
+
+}
