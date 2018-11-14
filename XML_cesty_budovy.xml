@@ -78,7 +78,7 @@
    
       <Layer queryable="0">
         <Name>budovy</Name>
-        <Title><![CDATA[Budovy]]></Title>
+        <Title><![CDATA[budovy]]></Title>
         <Abstract><![CDATA[]]></Abstract>
 <CRS>EPSG:5514</CRS>
  <!-- alias 5514 -->
