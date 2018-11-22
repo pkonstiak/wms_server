@@ -1,0 +1,27 @@
+{
+  "name": "wms_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GetMap.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mapnik": "^3.6.2",
+    "nodemon": "^1.18.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js --watch ."
+	
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkonstiak/wms_server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pkonstiak/wms_server/issues"
+  },
+  "homepage": "https://github.com/pkonstiak/wms_server#readme"
+}
