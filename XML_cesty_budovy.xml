@@ -154,6 +154,214 @@
 
        
       </Layer>
+
+      <Layer queryable="0">
+        <Name>kanalizacia</Name>
+        <Title><![CDATA[kanalizacia]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+      <Layer queryable="0">
+        <Name>cintorin</Name>
+        <Title><![CDATA[cintorin]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
+     
+      <Layer queryable="0">
+        <Name>odpad</Name>
+        <Title><![CDATA[odpad]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
+      
+      <Layer queryable="0">
+        <Name>skola</Name>
+        <Title><![CDATA[skola]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
+    
+      <Layer queryable="0">
+        <Name>stlpy</Name>
+        <Title><![CDATA[stlpy]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
+      
+      <Layer queryable="0">
+        <Name>ubytovanie</Name>
+        <Title><![CDATA[ubytovanie]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
+     
+      <Layer queryable="0">
+        <Name>zastavky</Name>
+        <Title><![CDATA[zastavky]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
+    
+      <Layer queryable="0">
+        <Name>tur_chodnik</Name>
+        <Title><![CDATA[tur_chodnik]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
+   
+      <Layer queryable="0">
+        <Name>park</Name>
+        <Title><![CDATA[park]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
+    
+      <Layer queryable="0">
+        <Name>parkovisko</Name>
+        <Title><![CDATA[parkovisko]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<EX_GeographicBoundingBox>
+<westBoundLongitude>17.864550</westBoundLongitude>
+<eastBoundLongitude>17.917088</eastBoundLongitude>
+<southBoundLatitude>48.762688</southBoundLatitude>
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+        
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+
+
+       
+      </Layer>
+
   </Capability>
 
 </WMS_Capabilities>

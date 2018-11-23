@@ -16,6 +16,17 @@ var addBudovy=arg.LAYERS.includes('budovy');
 var addCesty=arg.LAYERS.includes('cesty');
 var addChodniky=arg.LAYERS.includes('chodniky');
 var addLavicky=arg.LAYERS.includes('lavicky');
+var addCintorin=arg.LAYERS.includes('cintorin');
+var addKanalizacia=arg.LAYERS.includes('kanalizacia');
+var addOdpad=arg.LAYERS.includes('odpad');
+var addPark=arg.LAYERS.includes('park');
+var addParkovisko=arg.LAYERS.includes('parkovisko');
+var addSkola=arg.LAYERS.includes('skola');
+var addStlpy=arg.LAYERS.includes('stlpy');
+var addTur_chodnik=arg.LAYERS.includes('tur_chodnik');
+var addUbytovanie=arg.LAYERS.includes('ubytovanie');
+var addZastavky=arg.LAYERS.includes('zastavky');
+
 
 
 var map = new mapnik.Map(width, height);
@@ -30,26 +41,7 @@ var style_budovy='<Style name="style_budovy">' + // style for layer "style_budov
     '<LineSymbolizer stroke="black" stroke-width="0.2" />' + // style for lines
     '<PolygonSymbolizer fill="#cc3333"  />' + // style for polygons
   '</Rule>' +
-'</Style>' 
-
-var style_cesty='<Style name="style_cesty">' + // style for layer "style_cesty"
-'<Rule>' +
-    '<LineSymbolizer stroke="#d7c8b9" stroke-width="0.8" />' + // style for lines
-'</Rule>' +
-'</Style>' 
-var style_chodniky='<Style name="style_chodniky">' + // style for layer "style_chodniky"
-'<Rule>' +
-    '<LineSymbolizer stroke="#d7c8b9" stroke-width="0.8" />' + // style for lines
-'</Rule>' +
-'</Style>'
-
-var style_lavicky='<Style name="style_lavicky">' + // style for layer "style_cesty"
-'<Rule>' +
-'<MaxScaleDenominator>1000</MaxScaleDenominator>'+
-'<PointSymbolizer file= "./icon/lavicka.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
-     // style for lines
-'</Rule>' +
-'</Style>' 
+'</Style>';
 
 var layer_budovy = '<Layer name="budovy" srs="'+proj+'">' + // same as above
 '<StyleName>style_budovy</StyleName>' +
@@ -57,7 +49,14 @@ var layer_budovy = '<Layer name="budovy" srs="'+proj+'">' + // same as above
     '<Parameter name="file">' + path.join( __dirname, 'data/budovy.shp' ) +'</Parameter>' +
     '<Parameter name="type">shape</Parameter>' +
 '</Datasource>' +                    
-'</Layer>' ;
+'</Layer>';
+
+var style_cesty='<Style name="style_cesty">' + // style for layer "style_cesty"
+'<Rule>' +
+    '<LineSymbolizer stroke="#d7c8b9" stroke-width="0.8" />' + // style for lines
+'</Rule>' +
+'</Style>';
+
 var layer_cesty = '<Layer name="cesty" srs="'+proj+'">' + // layer "cesty" with spatial reference system
 '<StyleName>style_cesty</StyleName>' + // binding of a style used for this layer => "style_cesty"
 '<Datasource>' + // definition of a data source
@@ -65,6 +64,13 @@ var layer_cesty = '<Layer name="cesty" srs="'+proj+'">' + // layer "cesty" with 
     '<Parameter name="type">shape</Parameter>' + // file type
 '</Datasource>' +
 '</Layer>';
+
+var style_chodniky='<Style name="style_chodniky">' + // style for layer "style_chodniky"
+'<Rule>' +
+    '<LineSymbolizer stroke="#d7c8b9" stroke-width="0.8" />' + // style for lines
+'</Rule>' +
+'</Style>';
+
 var layer_chodniky = '<Layer name="chodniky" srs="'+proj+'">' + // same as above
 '<StyleName>style_chodniky</StyleName>' +
 '<Datasource>' +
@@ -73,24 +79,214 @@ var layer_chodniky = '<Layer name="chodniky" srs="'+proj+'">' + // same as above
 '</Datasource>' +                    
 '</Layer>';
 
+var style_lavicky='<Style name="style_lavicky">' + // style for layer "style_cesty"
+'<Rule>' +
+'<MaxScaleDenominator>1000</MaxScaleDenominator>'+
+'<PointSymbolizer file= "./icon/lavicka.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
+     // style for lines
+'</Rule>' +
+'</Style>';
+
 var layer_lavicky = '<Layer name="lavicky" srs="'+proj+'">' + // same as above
 '<StyleName>style_lavicky</StyleName>' +
 '<Datasource>' +
     '<Parameter name="file">' + path.join( __dirname, 'data/lavicky.shp' ) +'</Parameter>' +
     '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +    
+
+'</Layer>';
+
+var style_kanalizacia='<Style name="style_kanalizacia">' + // style for layer "style_cesty"
+'<Rule>' +
+
+'<PointSymbolizer file= "./icon/kanalizacia.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
+     // style for lines
+'</Rule>' +
+'</Style>';
+
+var layer_kanalizacia = '<Layer name="kanalizacia" srs="'+proj+'">' + // same as above
+'<StyleName>style_kanalizacia</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/kanalizacia.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
 '</Datasource>' +                    
 '</Layer>';
 
+var style_cintorin='<Style name="style_cintorin">' + // style for layer "style_budovy"
+'<Rule>' +
+    '<LineSymbolizer stroke="black" stroke-width="0.2" />' + // style for lines
+    '<PolygonSymbolizer fill="#cc3333"  />' + // style for polygons
+  '</Rule>' +
+'</Style>';
+
+var layer_cintorin = '<Layer name="cintorin" srs="'+proj+'">' + // same as above
+'<StyleName>style_cintorin</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/cintorin.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +                    
+'</Layer>';
+
+var style_odpad='<Style name="style_odpad">' + // style for layer "style_cesty"
+'<Rule>' +
+'<MaxScaleDenominator>1000</MaxScaleDenominator>'+
+'<PointSymbolizer file= "./icon/odpad.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
+     // style for lines
+'</Rule>' +
+'</Style>';
+
+var layer_odpad = '<Layer name="odpad" srs="'+proj+'">' + // same as above
+'<StyleName>style_odpad</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/odpad.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +                    
+'</Layer>';
+
+var style_skola='<Style name="style_skola">' + // style for layer "style_cesty"
+'<Rule>' +
+'<MaxScaleDenominator>10000</MaxScaleDenominator>'+
+'<PointSymbolizer file= "./icon/skola.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
+     // style for lines
+'</Rule>' +
+'</Style>';
+
+var layer_skola = '<Layer name="skola" srs="'+proj+'">' + // same as above
+'<StyleName>style_skola</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/skola.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +                    
+'</Layer>';
+
+var style_stlpy='<Style name="style_stlpy">' + // style for layer "style_cesty"
+'<Rule>' +
+'<MaxScaleDenominator>1000</MaxScaleDenominator>'+
+'<PointSymbolizer file= "./icon/stlpy.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
+     // style for lines
+'</Rule>' +
+'</Style>';
+
+var layer_stlpy = '<Layer name="stlpy" srs="'+proj+'">' + // same as above
+'<StyleName>style_stlpy</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/stlpy.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +                    
+'</Layer>';
+
+var style_ubytovanie='<Style name="style_ubytovanie">' + // style for layer "style_cesty"
+'<Rule>' +
+'<MaxScaleDenominator>1000</MaxScaleDenominator>'+
+'<PointSymbolizer file= "./icon/ubytovanie.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
+     // style for lines
+'</Rule>' +
+'</Style>';
+
+var layer_ubytovanie = '<Layer name="ubytovanie" srs="'+proj+'">' + // same as above
+'<StyleName>style_ubytovanie</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/ubyt_zar.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +                    
+'</Layer>';
+
+var style_zastavky='<Style name="style_zastavky">' + // style for layer "style_cesty"
+'<Rule>' +
+'<MaxScaleDenominator>1000</MaxScaleDenominator>'+
+'<PointSymbolizer file= "./icon/zastavky.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
+     // style for lines
+'</Rule>' +
+'</Style>';
+
+var layer_zastavky = '<Layer name="zastavky" srs="'+proj+'">' + // same as above
+'<StyleName>style_zastavky</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/zastavky.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +                    
+'</Layer>';
+
+var style_tur_chodnik='<Style name="tur_chodnik">' + // style for layer "style_cesty"
+'<Rule>' +
+    '<LineSymbolizer stroke="#d7c8b9" stroke-width="0.8" />' + // style for lines
+'</Rule>' +
+'</Style>';
+
+var layer_tur_chodnik = '<Layer name="tur_chodnik" srs="'+proj+'">' + // layer "cesty" with spatial reference system
+'<StyleName>style_tur_chodnik</StyleName>' + // binding of a style used for this layer => "style_cesty"
+'<Datasource>' + // definition of a data source
+    '<Parameter name="file">' + path.join( __dirname, 'data/Tur_chodnik.shp' ) +'</Parameter>' + // path to the data file
+    '<Parameter name="type">shape</Parameter>' + // file type
+'</Datasource>' +
+'</Layer>';
+
+var style_park='<Style name="style_park">' + // style for layer "style_budovy"
+'<Rule>' +
+    '<LineSymbolizer stroke="black" stroke-width="0.2" />' + // style for lines
+    '<PolygonSymbolizer fill="#cc3333"  />' + // style for polygons
+  '</Rule>' +
+'</Style>';
+
+var layer_park = '<Layer name="park" srs="'+proj+'">' + // same as above
+'<StyleName>style_park</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/park_polygon.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +                    
+'</Layer>';
+
+var style_parkovisko='<Style name="style_parkovisko">' + // style for layer "style_budovy"
+'<Rule>' +
+    '<LineSymbolizer stroke="black" stroke-width="0.2" />' + // style for lines
+    '<PolygonSymbolizer fill="#cc3333"  />' + // style for polygons
+  '</Rule>' +
+'</Style>';
+
+var layer_parkovisko = '<Layer name="parkovisko" srs="'+proj+'">' + // same as above
+'<StyleName>style_budovy</StyleName>' +
+'<Datasource>' +
+    '<Parameter name="file">' + path.join( __dirname, 'data/parkovisko.shp' ) +'</Parameter>' +
+    '<Parameter name="type">shape</Parameter>' +
+'</Datasource>' +                    
+'</Layer>';
+
+
+
+
+
+
+
 // schema of the rendered map
-var schema = '<Map background-color="blue" srs="'+proj+'">' + // we define background color of the map and its spatial reference system with epsg code of data used
+var schema = '<Map background-color="white" srs="'+proj+'">' + // we define background color of the map and its spatial reference system with epsg code of data used
                 (addBudovy ? style_budovy : '') +
-                (addCesty ? style_cesty : '') +
-                (addChodniky ? style_chodniky : '') +
-                (addLavicky ? style_lavicky : '') + 
                 (addBudovy ? layer_budovy : '') + 
+                (addCesty ? style_cesty : '') +
                 (addCesty ? layer_cesty : '') + 
+                (addChodniky ? style_chodniky : '') +
                 (addChodniky ? layer_chodniky : '') + 
+                (addLavicky ? style_lavicky : '') +                            
                 (addLavicky ? layer_lavicky : '') + 
+                (addKanalizacia ? style_kanalizacia : '') + 
+                (addKanalizacia ? layer_kanalizacia : '') + 
+                (addCintorin ? style_cintorin : '') + 
+                (addCintorin ? layer_cintorin : '') +
+                (addOdpad ? style_odpad : '') + 
+                (addOdpad ? layer_odpad : '') +
+                (addSkola ? style_skola : '') + 
+                (addSkola ? layer_skola : '') +
+                (addStlpy ? style_stlpy : '') + 
+                (addStlpy ? layer_stlpy : '') +
+                (addUbytovanie ? style_ubytovanie : '') + 
+                (addUbytovanie ? layer_ubytovanie : '') +
+                (addZastavky ? style_zastavky : '') + 
+                (addZastavky ? layer_zastavky : '') +
+                (addTur_chodnik ? style_tur_chodnik : '') + 
+                (addTur_chodnik ? layer_tur_chodnik : '') +
+                (addPark ? style_park : '') + 
+                (addPark ? layer_park : '') +
+                (addParkovisko ? style_parkovisko : '') + 
+                (addParkovisko ? layer_parkovisko : '') +
                                
                  
             '</Map>';
