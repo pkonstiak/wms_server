@@ -19,7 +19,6 @@ var addLavicky=arg.LAYERS.includes('lavicky');
 var addCintorin=arg.LAYERS.includes('cintorin');
 var addKanalizacia=arg.LAYERS.includes('kanalizacia');
 var addOdpad=arg.LAYERS.includes('odpad');
-var addParkovisko=arg.LAYERS.includes('parkovisko');
 var addSkola=arg.LAYERS.includes('skola');
 var addStlpy=arg.LAYERS.includes('stlpy');
 var addUbytovanie=arg.LAYERS.includes('ubytovanie');
@@ -55,7 +54,7 @@ var layer_park = '<Layer name="park" srs="'+proj+'">' + // same as above
 
 var style_budovy='<Style name="style_budovy">' + // style for layer "style_budovy"
 '<Rule>' +
-'<MaxScaleDenominator>10000</MaxScaleDenominator>'+
+'<MaxScaleDenominator>15000</MaxScaleDenominator>'+
 '<MinScaleDenominator>10</MinScaleDenominator>'+
     '<LineSymbolizer stroke="black" stroke-width="0.5" />' + // style for lines
     '<PolygonSymbolizer fill-opacity="0.85"  fill="#cc3333"  />' + // style for polygons
@@ -72,7 +71,7 @@ var layer_budovy = '<Layer name="budovy" srs="'+proj+'">' + // same as above
 
 var style_cesty='<Style name="style_cesty">' + // style for layer "style_cesty"
 '<Rule>' +
-    '<LineSymbolizer stroke="#d7c8b9" stroke-width="2" />' + // style for lines
+    '<LineSymbolizer stroke="#a3a3c2"  stroke-width="5" />' + // style for lines
 '</Rule>' +
 '</Style>';
 
@@ -88,7 +87,7 @@ var style_chodniky='<Style name="style_chodniky">' + // style for layer "style_c
 '<Rule>' +
 '<MaxScaleDenominator>10000</MaxScaleDenominator>'+
 '<MinScaleDenominator>10</MinScaleDenominator>'+
-    '<LineSymbolizer stroke="#d7c8b9" stroke-width="0.8" />' + // style for lines
+    '<LineSymbolizer stroke="#ff7733" stroke-width="1.2" />' + // style for lines
 '</Rule>' +
 '</Style>';
 
@@ -176,7 +175,7 @@ var style_skola='<Style name="style_skola">' + // style for layer "style_cesty"
 '<Rule>' +
 '<MaxScaleDenominator>10000</MaxScaleDenominator>'+
 '<MinScaleDenominator>1</MinScaleDenominator>'+
-'<PointSymbolizer file= "./icon/skola.png" opacity="1.0" transform="scale(0.08,0.08)" />'+
+'<PointSymbolizer file= "./icon/skola.png" opacity="1.0" transform="scale(0.05,0.05)" />'+
      // style for lines
 '</Rule>' +
 '</Style>';
@@ -191,10 +190,10 @@ var layer_skola = '<Layer name="skola" srs="'+proj+'">' + // same as above
 
 var style_stlpy='<Style name="style_stlpy">' + // style for layer "style_cesty"
 '<Rule>' +
-'<MaxScaleDenominator>15000</MaxScaleDenominator>'+
+'<MaxScaleDenominator>10000</MaxScaleDenominator>'+
 '<MinScaleDenominator>10</MinScaleDenominator>'+
 
-'<PointSymbolizer file= "./icon/stlpy.png"  transform="scale(0.02,0.02)" />'+
+'<PointSymbolizer file= "./icon/stlpy.png"  transform="scale(0.025,0.025)" />'+
      // style for lines
 '</Rule>' +
 '</Style>';
@@ -209,9 +208,9 @@ var layer_stlpy = '<Layer name="stlpy" srs="'+proj+'">' + // same as above
 
 var style_ubytovanie='<Style name="style_ubytovanie">' + // style for layer "style_cesty"
 '<Rule>' +
-'<MaxScaleDenominator>15000</MaxScaleDenominator>'+
+'<MaxScaleDenominator>10000</MaxScaleDenominator>'+
 '<MinScaleDenominator>10</MinScaleDenominator>'+
-'<PointSymbolizer file= "./icon/ubytovanie.png" opacity="1.0" transform="scale(0.5,0.5)" />'+
+'<PointSymbolizer file= "./icon/ubytovanie.png" opacity="1.0" transform="scale(0.1,0.1)" />'+
      // style for lines
 '</Rule>' +
 '</Style>';
@@ -227,7 +226,7 @@ var layer_ubytovanie = '<Layer name="ubytovanie" srs="'+proj+'">' + // same as a
 var style_zastavky='<Style name="style_zastavky">' + // style for layer "style_cesty"
 '<Rule>' +
 '<MaxScaleDenominator>10000</MaxScaleDenominator>'+
-'<MinScaleDenominator>1000</MinScaleDenominator>'+
+'<MinScaleDenominator>10</MinScaleDenominator>'+
 '<PointSymbolizer file= "./icon/zastavky.png" opacity="1.0" transform="scale(0.04,0.04)" />'+
      // style for lines
 '</Rule>' +
@@ -241,55 +240,36 @@ var layer_zastavky = '<Layer name="zastavky" srs="'+proj+'">' + // same as above
 '</Datasource>' +                    
 '</Layer>';
 
-var style_parkovisko='<Style name="style_parkovisko">' + // style for layer "style_budovy"
-'<Rule>' +
-    '<LineSymbolizer stroke="black" stroke-width="0.2" />' + // style for lines
-    '<PolygonSymbolizer fill="#cc3333"  />' + // style for polygons
-  '</Rule>' +
-'</Style>';
-
-var layer_parkovisko = '<Layer name="parkovisko" srs="'+proj+'">' + // same as above
-'<StyleName>style_budovy</StyleName>' +
-'<Datasource>' +
-    '<Parameter name="file">' + path.join( __dirname, 'data/parkovisko.shp' ) +'</Parameter>' +
-    '<Parameter name="type">shape</Parameter>' +
-'</Datasource>' +                    
-'</Layer>';
-
-
-
-
-
 
 
 // schema of the rendered map
-var schema = '<Map background-color="#e5e5cc" srs="'+proj+'">' + // we define background color of the map and its spatial reference system with epsg code of data used
+var schema = '<Map background-color="#ffffe6" srs="'+proj+'">' + // we define background color of the map and its spatial reference system with epsg code of data used
+                
+                
+                (addCintorin ? style_cintorin : '') + 
+                (addCintorin ? layer_cintorin : '') +                  
+                (addPark ? style_park : '') + 
+                (addPark ? layer_park : '') +
                 (addBudovy ? style_budovy : '') +
                 (addBudovy ? layer_budovy : '') + 
+                (addUbytovanie ? style_ubytovanie : '') + 
+                (addUbytovanie ? layer_ubytovanie : '') +
+                (addSkola ? style_skola : '') + 
+                (addSkola ? layer_skola : '') +   
                 (addCesty ? style_cesty : '') +
                 (addCesty ? layer_cesty : '') + 
                 (addChodniky ? style_chodniky : '') +
                 (addChodniky ? layer_chodniky : '') + 
                 (addLavicky ? style_lavicky : '') +                            
                 (addLavicky ? layer_lavicky : '') + 
-                (addKanalizacia ? style_kanalizacia : '') + 
-                (addKanalizacia ? layer_kanalizacia : '') + 
-                (addCintorin ? style_cintorin : '') + 
-                (addCintorin ? layer_cintorin : '') +
-                (addOdpad ? style_odpad : '') + 
-                (addOdpad ? layer_odpad : '') +
-                (addSkola ? style_skola : '') + 
-                (addSkola ? layer_skola : '') +
-                (addStlpy ? style_stlpy : '') + 
-                (addStlpy ? layer_stlpy : '') +
-                (addUbytovanie ? style_ubytovanie : '') + 
-                (addUbytovanie ? layer_ubytovanie : '') +
                 (addZastavky ? style_zastavky : '') + 
                 (addZastavky ? layer_zastavky : '') +
-                (addPark ? style_park : '') + 
-                (addPark ? layer_park : '') +
-                (addParkovisko ? style_parkovisko : '') + 
-                (addParkovisko ? layer_parkovisko : '') +
+                (addOdpad ? style_odpad : '') + 
+                (addOdpad ? layer_odpad : '') +  
+                (addKanalizacia ? style_kanalizacia : '') + 
+                (addKanalizacia ? layer_kanalizacia : '') + 
+                (addStlpy ? style_stlpy : '') + 
+                (addStlpy ? layer_stlpy : '') +
                                
                  
             '</Map>';
