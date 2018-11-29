@@ -54,11 +54,16 @@ var layer_park = '<Layer name="park" srs="'+proj+'">' + // same as above
 
 var style_budovy='<Style name="style_budovy">' + // style for layer "style_budovy"
 '<Rule>' +
-'<MaxScaleDenominator>15000</MaxScaleDenominator>'+
+'<MaxScaleDenominator>20000</MaxScaleDenominator>'+
 '<MinScaleDenominator>10</MinScaleDenominator>'+
     '<LineSymbolizer stroke="black" stroke-width="0.5" />' + // style for lines
     '<PolygonSymbolizer fill-opacity="0.85"  fill="#cc3333"  />' + // style for polygons
   '</Rule>' +
+  '<Rule>' +
+"<Filter>[OBJECTID] = 10611 </Filter>"+ 
+'<TextSymbolizer face-name="DejaVu Sans Book" size="30" fill="black" halo-radius="5" wrap_width="0" placement="polygon" > "KOČOVCE" </TextSymbolizer>'+
+'<MinScaleDenominator>2000</MinScaleDenominator>'+
+'</Rule>' +
 '</Style>';
 
 var layer_budovy = '<Layer name="budovy" srs="'+proj+'">' + // same as above
@@ -260,12 +265,12 @@ var schema = '<Map background-color="#ffffe6" background-image="./icon/back.png"
                 (addCintorin ? layer_cintorin : '') +                  
                 (addPark ? style_park : '') + 
                 (addPark ? layer_park : '') +
+                (addCesty ? style_cesty : '') +
+                (addCesty ? layer_cesty : '') + 
                 (addBudovy ? style_budovy : '') +
                 (addBudovy ? layer_budovy : '') + 
                 (addSkola ? style_skola : '') + 
                 (addSkola ? layer_skola : '') +   
-                (addCesty ? style_cesty : '') +
-                (addCesty ? layer_cesty : '') + 
                 (addChodniky ? style_chodniky : '') +
                 (addChodniky ? layer_chodniky : '') + 
                 (addUbytovanie ? style_ubytovanie : '') + 
@@ -280,6 +285,7 @@ var schema = '<Map background-color="#ffffe6" background-image="./icon/back.png"
                 (addKanalizacia ? layer_kanalizacia : '') + 
                 (addStlpy ? style_stlpy : '') + 
                 (addStlpy ? layer_stlpy : '') +
+                
                                
                  
             '</Map>';
