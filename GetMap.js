@@ -71,7 +71,15 @@ var layer_budovy = '<Layer name="budovy" srs="'+proj+'">' + // same as above
 
 var style_cesty='<Style name="style_cesty">' + // style for layer "style_cesty"
 '<Rule>' +
-    '<LineSymbolizer stroke="#a3a3c2"  stroke-width="5" />' + // style for lines
+    '<LineSymbolizer stroke="#000000"  stroke-width="6"  />'+
+    '<LineSymbolizer stroke="#a3a3c2"  stroke-width="5"  />' +
+    '<LineSymbolizer stroke="#000000"  stroke-width="0.9" stroke-dasharray="7" />' +
+       // style for lines
+'</Rule>' +
+'<Rule>' +
+"<Filter>[RDT] = 303 </Filter>"+ 
+'<TextSymbolizer face-name="DejaVu Sans Book" size="12" fill="black" halo-radius="2" wrap_width="0" placement="line" > "507" </TextSymbolizer>'+
+'<MinScaleDenominator>1000</MinScaleDenominator>'+
 '</Rule>' +
 '</Style>';
 
@@ -85,9 +93,11 @@ var layer_cesty = '<Layer name="cesty" srs="'+proj+'">' + // layer "cesty" with 
 
 var style_chodniky='<Style name="style_chodniky">' + // style for layer "style_chodniky"
 '<Rule>' +
-'<MaxScaleDenominator>10000</MaxScaleDenominator>'+
+'<MaxScaleDenominator>5000</MaxScaleDenominator>'+
 '<MinScaleDenominator>10</MinScaleDenominator>'+
-    '<LineSymbolizer stroke="#ff7733" stroke-width="1.2" />' + // style for lines
+'<LineSymbolizer stroke="#662900" stroke-width="5" />' +
+    '<LineSymbolizer stroke="#ff7733" stroke-width="4" />' +
+    '<LineSymbolizer stroke="#7a7a52" stroke-width="2" stroke-dasharray="10" />' + // style for lines
 '</Rule>' +
 '</Style>';
 
@@ -122,7 +132,7 @@ var style_kanalizacia='<Style name="style_kanalizacia">' + // style for layer "s
 '<MaxScaleDenominator>10000</MaxScaleDenominator>'+
 '<MinScaleDenominator>10</MinScaleDenominator>'+
 
-'<PointSymbolizer file= "./icon/kanalizacia.png" opacity="0.5" transform="scale(0.01,0.01)" />'+
+'<PointSymbolizer file= "./icon/kanalizacia.png" opacity="0.7" transform="scale(0.01,0.01)" />'+
      // style for lines
 '</Rule>' +
 '</Style>';
@@ -243,7 +253,7 @@ var layer_zastavky = '<Layer name="zastavky" srs="'+proj+'">' + // same as above
 
 
 // schema of the rendered map
-var schema = '<Map background-color="#ffffe6" srs="'+proj+'">' + // we define background color of the map and its spatial reference system with epsg code of data used
+var schema = '<Map background-color="#ffffe6" background-image="./icon/back.png"  srs="'+proj+'">' + // we define background color of the map and its spatial reference system with epsg code of data used
                 
                 
                 (addCintorin ? style_cintorin : '') + 
@@ -252,14 +262,14 @@ var schema = '<Map background-color="#ffffe6" srs="'+proj+'">' + // we define ba
                 (addPark ? layer_park : '') +
                 (addBudovy ? style_budovy : '') +
                 (addBudovy ? layer_budovy : '') + 
-                (addUbytovanie ? style_ubytovanie : '') + 
-                (addUbytovanie ? layer_ubytovanie : '') +
                 (addSkola ? style_skola : '') + 
                 (addSkola ? layer_skola : '') +   
                 (addCesty ? style_cesty : '') +
                 (addCesty ? layer_cesty : '') + 
                 (addChodniky ? style_chodniky : '') +
                 (addChodniky ? layer_chodniky : '') + 
+                (addUbytovanie ? style_ubytovanie : '') + 
+                (addUbytovanie ? layer_ubytovanie : '') +
                 (addLavicky ? style_lavicky : '') +                            
                 (addLavicky ? layer_lavicky : '') + 
                 (addZastavky ? style_zastavky : '') + 
@@ -274,7 +284,7 @@ var schema = '<Map background-color="#ffffe6" srs="'+proj+'">' + // we define ba
                  
             '</Map>';
 // now we have a mapnik xml in variable schema that defines layers, data sources and styles of the layers
-console.log(schema)
+
 map.fromString(schema, function(err, map) { // we use method "fromString" => we need to use the xml schema inside variable schema
   if (err) {
       console.log('Map Schema Error: ' + err.message) // if there is an error in schema processing we print it out
