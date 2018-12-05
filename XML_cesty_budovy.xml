@@ -1,70 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> <!--definovanie UTF-8 - dokaze precitat aj diakritiku -->
 <WMS_Capabilities version="1.3.0"
   xmlns="http://www.opengis.net/wms"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:esri_wms="http://www.esri.com/wms"
-  xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.esri.com/wms http://localhost:3003/wms?version=1.3.0%26service=WMS%26request=GetSchemaExtension">
-  <Service>
-    <Name><![CDATA[WMS]]></Name>
-    <Title><![CDATA[SK_UGKK_ZBGIS_WMS_Antropogenne_prvky]]></Title>
-    <Abstract><![CDATA[Zobrazenie atribútových údajov kategórie antropogénne prvky zo súboru objektov ZB GIS (A.2.2.2)]]></Abstract>
-    <KeywordList><Keyword><![CDATA[WMS, Antropogénne prvky]]></Keyword></KeywordList>
-    <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost:3003/wms?"/>
-    <ContactInformation>
-      <ContactPersonPrimary>
-        <ContactPerson><![CDATA[GKÚ]]></ContactPerson>
-        <ContactOrganization><![CDATA[Geodetický a kartografický ústav Bratislava]]></ContactOrganization>
-      </ContactPersonPrimary>
-      <ContactPosition><![CDATA[vedúci odboru]]></ContactPosition>
-      <ContactAddress>
-        <AddressType><![CDATA[Poštová adresa]]></AddressType>
-        <Address><![CDATA[Chlumeckého 4]]></Address>
-        <City><![CDATA[Bratislava]]></City>
-        <StateOrProvince><![CDATA[Bratislava II]]></StateOrProvince>
-        <PostCode><![CDATA[82745]]></PostCode>
-        <Country><![CDATA[Slovenská Republika]]></Country>
-      </ContactAddress>
-      <ContactVoiceTelephone><![CDATA[+421 2 2081 6225]]></ContactVoiceTelephone>
-      <ContactFacsimileTelephone><![CDATA[+421 2 4342 7511]]></ContactFacsimileTelephone>
-      <ContactElectronicMailAddress><![CDATA[gkuzc@skgeodesy.sk]]></ContactElectronicMailAddress>
-    </ContactInformation>
-    <Fees><![CDATA[bez poplatkov]]></Fees>
-    <AccessConstraints><![CDATA[© Úrad geodézie, kartografie a katastra SR]]></AccessConstraints>
-    <MaxWidth>4096</MaxWidth>
-    <MaxHeight>4096</MaxHeight>
-  </Service>
+  xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.esri.com/wms http://localhost:3003/wms?version=1.3.0%26service=WMS%26request=GetSchemaExtension"> <!--schema ktora je zadana OGC pre version="1.3.0" musí tam byt zadafinovana nasa cesta na localhost (funguje na overoavnie konfiguracie)-->
+  
   <Capability>
-    <Request>
-      <GetCapabilities>
-        <Format>application/vnd.ogc.wms_xml</Format>
-        <Format>text/xml</Format>
-        <DCPType>
-          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost:3003/wms?"/></Get></HTTP>
-        </DCPType>
-      </GetCapabilities>
+    <Request> <!-- Parameter request oznacuje, ktora operacia ma byt vyvolana. Hodnota vsak musi byt dana servereom -->
+     
       <GetMap>
-        <Format>image/png</Format>
+        <Format>image/png</Format> <!--parameter format urcuje vystupny format odpovede na operaciu - v tomto pripade ide o format obrazku .png -->
         
         <DCPType>
           <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost:3003/wms?"/></Get></HTTP>
         </DCPType>
       </GetMap>
-      <GetFeatureInfo>
-        <Format>application/vnd.esri.wms_raw_xml</Format>
-        <Format>application/vnd.esri.wms_featureinfo_xml</Format>
-        <Format>application/vnd.ogc.wms_xml</Format>
-        <Format>application/geojson</Format>
-        <Format>text/xml</Format>
-        <Format>text/html</Format>
-        <Format>text/plain</Format>
-        <DCPType>
-          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost:3003/wms?"/></Get></HTTP>
-        </DCPType>
-      </GetFeatureInfo>
+      
       <esri_wms:GetStyles>
         <Format>application/vnd.ogc.sld+xml</Format>
         <DCPType>
-          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost:3003/wms?"/></Get></HTTP>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost:3003/wms?"/></Get></HTTP> <!--format podporovania obrazkov -->
         </DCPType>
       </esri_wms:GetStyles>
     </Request>
@@ -76,22 +31,22 @@
       <Format>XML</Format>
     </Exception>
    
-      <Layer queryable="0">
-        <Name>budovy</Name>
-        <Title><![CDATA[budovy]]></Title>
-        <Abstract><![CDATA[]]></Abstract>
-<CRS>EPSG:5514</CRS>
+      <Layer queryable="0"> <!--nastavujeme 0 aby vrstva nebola interaktivna -->
+        <Name>budovy</Name> <!--nazov vrstvy budovy- tento nazov sa nam zobrazi pod name v QGIS-->
+        <Title><![CDATA[budovy]]></Title> <!--nazov vrstvy budovy- tento nazov sa nam zobrazi pod title v QGIS (po vlozeni sa nam zobrazi v liste) -->
+        <Abstract><![CDATA[]]></Abstract> <!--popis danej vrstvy v mojom pripade je prazdna (v QGIS sa zobrazuje )-->
+<CRS>EPSG:5514</CRS> <!--definovanie EPSG kodu pre S-JTSK(Krovak East North)-->
  <!-- alias 5514 -->
 <CRS>EPSG:102067</CRS>
-<EX_GeographicBoundingBox>
-<westBoundLongitude>17.864550</westBoundLongitude>
-<eastBoundLongitude>17.917088</eastBoundLongitude>
-<southBoundLatitude>48.762688</southBoundLatitude>
-<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox>
-<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/>
+<EX_GeographicBoundingBox> <!-- Hodnoty ohraničenia určujú, že časť zeme ktorá má byť mapovaná cez dva páry súradníc v určitej CRS vrstve. Prvý pár určuje minimálne hodnoty súradníc vo vrstve CRS, druhá špecifikuje maximálne hodnoty súradníc-->
+<westBoundLongitude>17.864550</westBoundLongitude> <!-- vychodna suradnica-->
+<eastBoundLongitude>17.917088</eastBoundLongitude> <!--zapadna suradnica -->
+<southBoundLatitude>48.762688</southBoundLatitude> <!--juzna suradnica -->
+<northBoundLatitude>48.725600</northBoundLatitude></EX_GeographicBoundingBox> <!--severna suradnica -->
+<BoundingBox CRS="EPSG:5514" minx="-511582.070" miny="-1222272.459" maxx="-507683.382" maxy="-1218107.447"/> <!--definuje nám doľný ľavý roh a horný pravý rok -->
 
         
-        <MaxScaleDenominator>9449.404762</MaxScaleDenominator>
+        <MaxScaleDenominator>9449.404762</MaxScaleDenominator> <!--urcuje sa maximalny rozsah pre vhodne generovanie mapy, hodnota pixelu ktora je dana 0,28 mm × 0,28 mm to sa potom prepocitava na velkost pixla  -->
       </Layer>
 
 
